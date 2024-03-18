@@ -1,3 +1,5 @@
+let listOfDrawnNumbers = [];
+let maxNumber = 10;
 let secretNumber = generateRandomNumber();
 let attempts = 1;
 
@@ -34,7 +36,19 @@ function verifyGuess() {
 }
 
 function generateRandomNumber() {
-    return parseInt(Math.random() * 10 + 1);  
+    let chosenNumber = parseInt(Math.random() * maxNumber + 1);
+    let numberOfElementsInTheList = listOfDrawnNumbers.length;
+
+    if (numberOfElementsInTheList == maxNumber) {
+        listOfDrawnNumbers = [];
+    }
+
+    if (listOfDrawnNumbers.includes(chosenNumber)) {
+        return generateRandomNumber();
+    } else {
+        listOfDrawnNumbers.push(chosenNumber);
+        return chosenNumber;
+    }
 } 
 
 function clearSpace() {
