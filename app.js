@@ -5,7 +5,8 @@ let attempts = 1;
 
 function displayText(tag, text) {
     let space = document.querySelector(tag);
-    space.innerHTML = text;  
+    space.innerHTML = text;
+    responsiveVoice.speak(text, 'Brazilian Portuguese Female', {rate:1.2});
 }
 
 function displayInitialMessage() {
